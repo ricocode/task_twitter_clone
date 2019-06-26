@@ -1,22 +1,37 @@
-<h1>circler mainページ</h1>
+<!DOCTYPE html>
+<html lasng="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Achieve</title>
+    <link rel="stylesheet" href="vendors/css/normalize.css">
+    <link rel="stylesheet" href="vendors/css/task.css">
+</head>
 
-<p><%= notice %></p>
+<body>
+    <h1>circler mainページ</h1>
+    <p><%= notice %></p>
 
-<table>
-  <tr>
-    <th>投稿内容</th>
-  </tr>
-    
-<% @chats.each do |chat| %>
-  <tr>
-    <td><%= chat.content %></td>
-    
-    <td><%= link_to '詳細を確認する', chat_path(chat.id) %></td>
-    <td><%= link_to "投稿内容を編集する", edit_chat_path(chat.id), data: { confirm: "編集していいですか？"}  %></td>
-    <td><%= link_to "投稿を削除する", chat_path(chat.id), method: :delete , data: { confirm: "本当に削除していいですか? "} %></td>
+    <table>
+      <tr>
+        <th>投稿内容</th>
+      </tr>
 
-  </tr>
-<% end %>
-</table>
+      <% @chats.each do |chat| %>
+        <tr>
+          <td><%= chat.content %></td>
+          <td><%= link_to '詳細を確認する', chat_path(chat.id) %></td>
+          <td><%= link_to "投稿内容を編集する", edit_chat_path(chat.id), data: { confirm: "編集していいですか？"}  %></td>
+          <td><%= link_to "投稿を削除する", chat_path(chat.id), method: :delete , data: { confirm: "本当に削除していいですか? "} %></td>
+         </tr>
+      <% end %>
+    </table>
 
-<%= link_to '新しく投稿する', new_chat_path %>
+    <%= link_to '新しく投稿する', new_chat_path %>
+  
+    <footer>
+    <p>circler運営部</p>
+    <p>© 2015-2018 Copyright circle of circler</p>
+  </footer>
+</body>
+</html>
