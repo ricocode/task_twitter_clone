@@ -1,0 +1,13 @@
+<h3>以下の内容で投稿する</h3>
+
+<%= form_with(model: @chat, url: chats_path, local: true) do |form| %>
+<%= form.hidden_field :content %>
+
+<p>本文:<%= @chat.content %></p>
+<p><%= form.submit "登録する" %></p>
+<% end %>
+
+<%= form_with(model: @chat, url:new_chat_path, local: true, methoed: 'get') do |form| %>
+<%= form.hidden_field :content %>
+<%= form.submit "戻る", name: 'back' %>
+<% end %>

@@ -1,0 +1,20 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  # For details on connection pooling, see Rails configuration guide
+  # http://guides.rubyonrails.org/configuring.html#database-pooling
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  template: template0
+
+development:
+  <<: *default
+  database: circler_development
+test:
+  <<: *default
+  database: circler_test
+
+production:
+  <<: *default
+  database: circler_production
+  username: circler
+  password: <%= ENV['CIRCLER_DATABASE_PASSWORD'] %>

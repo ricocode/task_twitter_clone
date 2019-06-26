@@ -1,0 +1,22 @@
+<h1>circler mainページ</h1>
+
+<p><%= notice %></p>
+
+<table>
+  <tr>
+    <th>投稿内容</th>
+  </tr>
+    
+<% @chats.each do |chat| %>
+  <tr>
+    <td><%= chat.content %></td>
+    
+    <td><%= link_to '詳細を確認する', chat_path(chat.id) %></td>
+    <td><%= link_to "投稿内容を編集する", edit_chat_path(chat.id), data: { confirm: "編集していいですか？"}  %></td>
+    <td><%= link_to "投稿を削除する", chat_path(chat.id), method: :delete , data: { confirm: "本当に削除していいですか? "} %></td>
+
+  </tr>
+<% end %>
+</table>
+
+<%= link_to '新しく投稿する', new_chat_path %>
